@@ -18,7 +18,7 @@ public class TestSuite_1 {
     }
 
     @Test
-    public  void Test1()
+    public void Test1()
     {
         System.out.println("Test one (1 + 1 = 2)");
         Calculator calc = new Calculator();
