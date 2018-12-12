@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 
 public class TestSuite_1 {
 
+    Calculator calc;
+
     @BeforeClass
     public static void BeforeClass()
     {
@@ -21,7 +23,7 @@ public class TestSuite_1 {
     public void Test1()
     {
         System.out.println("Test one (1 + 1 = 2)");
-        Calculator calc = new Calculator();
+        calc = new Calculator();
         int result = calc.add(1,1);
         assertEquals(result, 2);
     }
@@ -29,13 +31,19 @@ public class TestSuite_1 {
     @Test
     public  void Test2()
     {
-        System.out.println("Test two");
+        System.out.println("Test two (2 * 2 = 4)");
+        calc = new Calculator();
+        int result = calc.multiply(2,2);
+        assertEquals(result, 4);
     }
 
     @Test
     public  void Test3()
     {
-        System.out.println("Test two");
+        System.out.println("Test three - composite");
+        calc = new Calculator();
+        int result = calc.add(calc.multiply(2,2), calc.multiply(1,1));
+        assertEquals(result, ((2*2) + (1*1)));
     }
 
     @After
