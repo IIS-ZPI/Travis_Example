@@ -22,15 +22,13 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
 
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'ls -aR'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml'
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '**/TEST-*.xml'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
